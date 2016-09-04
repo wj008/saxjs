@@ -356,6 +356,7 @@ var Config = (function () {
             return;
         }
         var code = JSON.stringify(data);
+        //TODO 是否需要对数据进行美化排版?
         if (!(extname == '.js' || extname == '.json' || extname == '.hjson')) {
             callback(new Error('This extension does not support:' + extname));
             return;
@@ -389,6 +390,7 @@ var Config = (function () {
             throw new Error('data must by object');
         }
         var code = JSON.stringify(data);
+        //TODO 是否需要对数据进行美化排版?
         if (!(extname == '.js' || extname == '.json' || extname == '.hjson')) {
             throw new Error('This extension does not support:' + extname);
         }
