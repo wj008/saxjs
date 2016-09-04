@@ -48,7 +48,7 @@ var Config = (function () {
                     return;
                 }
                 else if (extname == '.hjson') {
-                    fs.readFile(filepath, 'utf-8', function (err, text) {
+                    fs.readFile(filepath, 'utf8', function (err, text) {
                         if (err) {
                             callback(err);
                             return;
@@ -142,7 +142,7 @@ var Config = (function () {
             }
             else if (extname == '.hjson') {
                 try {
-                    var text = fs.readFileSync(filepath, 'utf-8');
+                    var text = fs.readFileSync(filepath, 'utf8');
                     var data = Hjson.parse(text);
                     that._names[name] = data;
                     return data;
@@ -374,7 +374,7 @@ var Config = (function () {
                 callback(new Error("cat not found the dirname:" + dirname));
                 return;
             }
-            fs.writeFile(filepath, code, function (err) {
+            fs.writeFile(filepath, code, 'utf8', function (err) {
                 if (err) {
                     callback(err);
                     return;
@@ -405,7 +405,7 @@ var Config = (function () {
             throw new Error("cat not found the dirname:" + dirname);
         }
         try {
-            fs.writeFileSync(filepath, code);
+            fs.writeFileSync(filepath, code, 'utf8');
         }
         catch (err) {
             throw err;
